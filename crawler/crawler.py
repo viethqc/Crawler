@@ -1,3 +1,4 @@
+import os
 try:
     from urllib.parse import urlparse
 except ImportError:
@@ -19,7 +20,10 @@ class Crawler :
         print self.serverName, self.objectName
 
     def setPathStorage(self, pathStorage):
-        return ""
+        if (os.path.exists(pathStorage) == False) :
+            os.makedirs(pathStorage)
+
+        return True
 
     def startCrawler(self):
         return ""
